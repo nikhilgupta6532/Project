@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    #toppingType input{
+      height:34px;
+      color: white;
+      background: #337ab7;
+      width:65%;
+      margin-left: 61px;
+    }
+    </style>
+    <script>
+    function toping(id){
+      $.ajax({
+        url:'./'+id
+      });
+    }
+    </script>
+  </head>
+  <body>
+    <div id="toppingType">
+      <input type="button" onclick="toping(this.id)" id="t1" value="Black olive"/><br/>
+      <input type="button" onclick="toping(this.id)" id="t2" value="Onion"/><br/>
+      <input type="button" onclick="toping(this.id)" id="t3" value="Crisp Capsicum"/><br/>
+      <input type="button" onclick="toping(this.id)" id="t4" value="Paneer"/><br/>
+      <input type="button" onclick="toping(this.id)" id="t5" value="Mushroom"/><br/>
+      <input type="button" onclick="toping(this.id)" id="t6" value="Golden Corn"/><br/>
+    </div>
+  </body>
+</html>

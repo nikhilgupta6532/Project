@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <title>App</title>
+    <style>
+    .alignment{
+    border: 1px solid black;
+    margin: 120px auto 0px;
+    border-radius: 25px;
+    padding: 10px;
+    min-height: 793px;
+    display: block;
+    max-width: 34%;
+    position: relative;
+    }
+    #image img
+    {
+      max-height: 250px !important;
+    }
+    #nimage img{
+      mex-height:250px !important;
+    }
+
+    #image
+    {
+      overflow: hidden;
+      height: 0px;
+    }
+    #nimage{
+      overflow: hidden;
+      height:0px;
+    }
+    #large
+    {
+      overflow: hidden;
+      height: 0px;
+    }
+    #choice{
+      overflow:hidden;
+      height:0px;
+    }
+    #crustP{
+      overflow: hidden;
+      height: 0px;
+      width: 65%;
+      margin-left: 61px;
+    }
+    #manyP{
+      overflow: hidden;
+      height:0px;
+    }
+    #crustType{
+      overflow: hidden;
+      height:0px;
+    }
+    #toppingType{
+      overflow: hidden;
+      height: 0px;
+    }
+    #cheese1{
+      overflow: hidden;
+      height:0px;
+    }
+    #app2{
+      position: relative;
+    }
+    #app4
+    {
+      position: absolute;
+      bottom: 15px;
+      width: calc(100% - 25px);
+    }
+    #app
+    {
+      max-height: 450px;
+      overflow-y: scroll;
+    }
+    #app3 button{
+    width: 65%;
+    background: #337ab7;
+    border-radius: 25px;
+    margin-left: 61px;
+    color:white;
+    min-width: 202px;
+    }
+    #app2 input{
+      width: 379px;
+      height: 40px;
+      border-radius: 25px;
+      padding: 20px;
+    }
+    #app ul{
+      margin-left:-39px;
+    }
+    #app span{
+          background-color: #ddd;
+          border-radius: 25px;
+          padding:10px;
+          font-size: 17px;
+          display:inline-block;
+    }
+
+    #app3 select{
+    width: 65%;
+    background: #337ab7;
+    border-radius: 25px;
+    margin-left: 61px;
+    height:40px;
+    color:white;
+    }
+
+    #messages li+li{
+      margin-bottom:10px;
+    }
+
+    </style>
+
+  </head>
+  <body>
+    <div class="alignment">
+  <div id="app" style="font-size:20px">
+    <p><span>Hello! welcome to <strong>Dominos</strong></span></p>
+    <p v-html="image"></p>
+    <p v-bind:title="title"><span>What kind of pizza do you want?</span></p>
+    <ul style="list-style:none" id="messages"></ul>
+  </div>
+  <div id="app4">
+  <div id="app2">
+    <p v-html="input"></p>
+  </div>
+  <div id="app3">
+    <button v-on:click="hey"> <img src="/icons/veg.png"height="35"/>Veg-Pizza</button><br/><br/>
+    <button @click="hey1"><img src="/icons/Non_Veg.png" height="35">Non-Veg Pizza</button>
+  </div>
+</div>
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="./server/nik.js"></script>
+<script src="https://unpkg.com/vue@2.3.4"></script>
+<script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
+</body>
+  <script>
+  var app= new Vue({
+    el:'#app',
+    data:{
+      title:"you loaded the page on"+new Date(),
+      image:'<img src="pizza.jpg" class="animated bounce">',
+    }
+  })
+
+  var text = new Vue({
+    el:'#app2',
+    data:{
+      input:'<input type="text" placeholder="Choose from below.." disabled >'
+    }
+  })
+
+  var buttons = new Vue({
+    el:'#app3',
+    data:{
+
+    },
+    methods:{
+      hey:function () {
+        // $('#app4').animate({
+        //   left:280
+        // },{
+        //   duration:2000,
+        //   start: function(){
+        //     $('#app4').addClass("animated slideOutDown");
+        //     $('#messages').append('<li class="text-right"><button style="color:white;font-family:verdana;font-size:30px;background:lightblue;border-radius:25px">Veg Pizza</button></li>');
+        //     $('#messages').append('<li>Pick one</li>');
+        //   },
+        //   complete: function(){
+        //   $('#app4').removeClass("animated slideOutDown");
+        //   $('#app3').load('./vegImages');
+        //   }
+        // })
+
+        function append_li()
+        {
+          var li  = '<li class="text-right"><span style="color:#eee;border-radius:25px;background-color:#337ab7;padding:10px;font-size:17px">Veg Pizza</span></li><li><span style="padding:10px;font-size:17px">Pick one</span></li>';
+          $("#messages").append(li);
+        }
+        function animate_image()
+        {
+          $("#app3 #image").animate({height: "320px"}, 1500);
+          $("#app2").animate({bottom: "0px"},0);
+        }
+
+        $("#app3 button").hide();
+        $("#app2").animate({bottom: "-15px"},900);
+        setTimeout(append_li,911);
+        $('#app3').load('./vegImages');
+        setTimeout(animate_image,1200);
+      },
+         hey1:function () {
+          //  var li=$('<li></li>');
+          //   $('#messages').append('<li class="text-right"style="color:blue;font-family:verdana;font-size:30px;">Non-Veg Pizza</li>');
+          //  $('#messages').append('<li>Pick one</li>');
+          //  $('#app3').load('./NonVegImages');
+
+          function append_li()
+          {
+            var li  = '<li class="text-right"><span style="color:#eee;border-radius:25px;background-color:#337ab7;padding:10px;font-size:17px">Non Veg Pizza</span></li><li><span style="padding:10px;font-size:17px">Pick one</span></li>';
+            $("#messages").append(li);
+          }
+          function animate_image()
+          {
+            $("#app3 #nimage").animate({height: "320px"}, 1500);
+            $("#app2").animate({bottom: "0px"},0);
+          }
+
+          $("#app3 button").hide();
+          $("#app2").animate({bottom: "-15px"},900);
+          setTimeout(append_li,911);
+          $('#app3').load('./NonVegImages');
+          setTimeout(animate_image,1200);
+         }
+    }
+  });
+  function scrlb(){
+    $("#app").scrollTop($("#app")[0].scrollHeight);
+  };
+  setInterval(scrlb,400);
+  </script>
+
+</html>

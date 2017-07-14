@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+    $(document).ready(function(){
+      $('#many').on('change',function(){
+        var pizza="";
+        $('#many option:selected').each(function(){
+          pizza += $(this).text()+"";
+        });
+        if(pizza == "1 Pizza"){
+          $.ajax({
+            url:'./one'
+          })
+        }
+      });
+    });
+    </script>
+  </head>
+  <body>
+    <div id="manyP">
+    <select id="many"><option value="">How many?</optiomn><option value="1">1 Pizza</option><option value="2">2 Pizza</option><option value="3">3 Pizza</option>
+    </div>
+  </body>
+</html>

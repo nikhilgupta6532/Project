@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    #crustType input{
+      height:47px;
+      color: white;
+      background: #337ab7;
+      width:65%;
+      margin-left: 61px;
+    }
+    </style>
+    <script>
+    function crust(id){
+      $.ajax({
+        url:'./'+id
+      });
+    }
+    </script>
+  </head>
+  <body>
+    <div id="crustType">
+    <input id="1" onclick="crust(this.id)" type="button" value="Classic Hand Tossed"/><br/>
+    <input id="2" onclick="crust(this.id)" type="button" value="White Thin Crust"/><br/>
+    <input id="3" onclick="crust(this.id)" type="button" value="Cheese Burst" /><br/>
+    <input id="4" onclick="crust(this.id)" type="button" value="Fresh Pan Pizza"/><br/>
+  </div>
+  </body>
+</html>
