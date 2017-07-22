@@ -1,0 +1,687 @@
+
+<script src="/js/owl.carousel.min.js"></script>
+<link rel="stylesheet" href="/css/owl.carousel.min.css"></script>
+
+
+<style>
+div input{
+width: 269px;
+border-radius: 25px;
+height: 40px;
+}
+#dis input{
+  border-radius: 25px;
+  width: 245px;
+  height: 33px;
+  margin: 3px auto 5px;
+}
+#large input {
+  width: 65%;
+  background: #337ab7;
+  border-radius: 25px;
+  margin-left: 61px;
+  height:47px;
+  color:white;
+}
+#choice input {
+  width: 65%;
+  background: #337ab7;
+  border-radius: 25px;
+  margin-left: 61px;
+  color:white;
+}
+#crustP input{
+  color: white;
+  background: #337ab7;
+}
+#add input{
+  width: 65%;
+  background: #337ab7;
+  border-radius: 25px;
+  margin-left: 61px;
+  color:white;
+}
+.custName input{
+  width: 91%;
+  border-radius: 25px;
+  margin-left: 61px;
+  margin-left: auto;
+}
+.custEmail input{
+  width: 91%;
+  border-radius: 25px;
+  margin-left: 61px;
+  margin-left: auto;
+}
+.custAddress input{
+  width: 91%;
+  border-radius: 25px;
+  margin-left: 61px;
+  margin-left: auto;
+}
+#crustType input{
+  height:47px;
+  color: white;
+  background: #337ab7;
+  width:65%;
+  margin-left: 61px;
+}
+#cheeseT input{
+height:47px;
+color: white;
+background: #337ab7;
+width:65%;
+margin-left: 61px;
+}
+#toppingType input{
+  height:34px;
+  color: white;
+  background: #337ab7;
+  width:65%;
+  margin-left: 61px;
+  border-radius: 25px;
+}
+#ena input{
+  width: 379px;
+  height: 40px;
+  border-radius: 25px;
+  padding: 20px;
+}
+#toppingType1 input{
+  height:34px;
+  color: white;
+  background: #337ab7;
+  width:65%;
+  margin-left: 61px;
+  border-radius: 25px;
+}
+#cheese1,#add,#cheeseT,#custName,#custEmail,#custAddress,#back,#manyP,#image,#nimage,#large,#choice,#crustType,#toppingType{
+  overflow: hidden;
+  height:0px;
+}
+    #crustP{
+      overflow: hidden;
+      height: 0px;
+      width: 65%;
+      margin-left: 61px;
+    }
+
+    #app3 #ena{
+      overflow: hidden;
+      height:0px;
+    }
+    #app3 .click1{
+      overflow: hidden;
+      height: 0px;
+    }
+    #app3 .click2{
+      overflow: hidden;
+      height: 0px;
+    }
+    #app3 .click3{
+      overflow: hidden;
+      height: 0px;
+    }
+    #app3 .click4{
+      overflow: hidden;
+      height: 0px;
+    }
+    #app3 .click5{
+      overflow: hidden;
+      height: 0px;
+    }
+    #app3 .click6{
+      overflow: hidden;
+      height: 0px;
+    }
+    #app3 .click7{
+      overflow: hidden;
+      height: 0px;
+    }
+    #app3 .disable{
+      overflow: hidden;
+      height: 0px;
+    }
+    #app3 .a{
+      overflow: hidden;
+      height: 0px;
+    }
+    #app3 .a1{
+      overflow: hidden;
+      height: 0px;
+    }
+    #app3 .a2{
+      overflow: hidden;
+      height: 0px;
+    }
+    #app3 .e{
+      overflow: hidden;
+      height: 0px;
+    }
+    #app2 .info{
+      overflow: hidden;
+      height: 0px;
+    }
+
+    #app3 #toppingType1{
+      overflow: hidden;
+      height:0px;
+    }
+
+
+</style>
+
+
+<script>
+function image(id){
+ $.ajax({
+    url:'./'+id,
+    success:function(response){
+
+    }
+  });
+
+}
+function click1(id){
+  $.ajax({
+    url:'./'+id,
+    success:function(response){
+
+    }
+  })
+
+}
+function regular(id){
+  $.ajax({
+    url:'./'+id,
+    success:function(response){
+
+    }
+  });
+}
+function  abc(id){
+  var url =  $('#'+id).attr('data');
+  $.ajax({
+    url:'./'+url,
+    success:function(response){
+
+    }
+  });
+}
+function top1(id){
+
+  $("#app3 #crustP").hide();
+  $.ajax({
+    url:'./'+id,
+    success:function(response){
+
+    }
+  });
+}
+function pizza(){
+    var pizza="";
+    $('#many option:selected').each(function(){
+      pizza += $(this).text()+"";
+    });
+    if(pizza == "1 Pizza"){
+      $('#app2').load('./oneP',function(responseTxt, statusTxt, xhr){
+        if(statusTxt == "success")
+               console.log("External content loaded successfully!");
+           if(statusTxt == "error")
+               console.log("Error: " + xhr.status + ": " + xhr.statusText);
+       });
+    }
+    if(pizza == "2 Pizza"){
+      $('#app2').load('./twoP',function(responseTxt, statusTxt, xhr){
+        if(statusTxt == "success")
+               console.log("External content loaded successfully!");
+           if(statusTxt == "error")
+               console.log("Error: " + xhr.status + ": " + xhr.statusText);
+       });
+    }
+    if(pizza == "3 Pizza"){
+      $('#app2').load('./threeP',function(responseTxt, statusTxt, xhr){
+        if(statusTxt == "success")
+               console.log("External content loaded successfully!");
+           if(statusTxt == "error")
+               console.log("Error: " + xhr.status + ": " + xhr.statusText);
+       });
+    }
+}
+function piz(){
+  $('#app2').load('./disable',function(responseTxt, statusTxt, xhr){
+    if(statusTxt == "success")
+           console.log("External content loaded successfully!");
+       if(statusTxt == "error")
+           console.log("Error: " + xhr.status + ": " + xhr.statusText);
+   });
+  $.ajax({
+    url:'./onePP',
+    success:function(response){
+
+    }
+  })
+}
+
+function piz2(){
+  $('#app2').load('./disable',function(responseTxt, statusTxt, xhr){
+    if(statusTxt == "success")
+           console.log("External content loaded successfully!");
+       if(statusTxt == "error")
+           console.log("Error: " + xhr.status + ": " + xhr.statusText);
+   });
+  $.ajax({
+    url:'./twoPP',
+    success:function(response){
+
+    }
+  })
+}
+function piz3(){
+  $('#app2').load('./disable',function(responseTxt, statusTxt, xhr){
+    if(statusTxt == "success")
+           console.log("External content loaded successfully!");
+       if(statusTxt == "error")
+           console.log("Error: " + xhr.status + ": " + xhr.statusText);
+   });
+  $.ajax({
+    url:'./threePP',
+    success:function(response){
+
+    }
+  })
+}
+
+function yesP(id){
+  if(id == 'no1'){
+  $('#app2').remove();
+}else{
+  $('#app2').load('./disable',function(responseTxt, statusTxt, xhr){
+    if(statusTxt == "success")
+           console.log("External content loaded successfully!");
+       if(statusTxt == "error")
+           console.log("Error: " + xhr.status + ": " + xhr.statusText);
+   });
+}
+
+  $.ajax({
+    url:'./'+id,
+    success:function(response){
+
+    }
+  })
+}
+function hey(){
+  function append_li()
+  {
+    var li  = '<li class="text-right"><span style="color:#eee;border-radius:25px;background-color:#337ab7;padding:10px;font-size:17px">Veg Pizza</span></li><li><span style="padding:10px;font-size:17px">Pick one</span></li>';
+    $("#messages").append(li);
+  }
+  function animate_image()
+  {
+    $("#app3 #image").animate({height: "280px"}, 1500);
+    $("#app2").animate({bottom: "0px"},0);
+  }
+
+  $("#app3 button").hide();
+  $("#app2").animate({bottom: "-15px"},900);
+  setTimeout(append_li,911);
+  $('#app3').load('./veg');
+  setTimeout(animate_image,1200);
+
+}
+function hey1(){
+  function append_li()
+  {
+    var li  = '<li class="text-right"><span style="color:#eee;border-radius:25px;background-color:#337ab7;padding:10px;font-size:17px">Non Veg Pizza</span></li><li><span style="padding:10px;font-size:17px">Pick one</span></li>';
+    $("#messages").append(li);
+  }
+  function animate_image()
+  {
+    $("#app3 #nimage").animate({height: "280px"}, 1500);
+    $("#app2").animate({bottom: "0px"},0);
+  }
+
+  $("#app3 button").hide();
+  $("#app2").animate({bottom: "-15px"},900);
+  setTimeout(append_li,911);
+  $('#app3').load('./NonVeg');
+  setTimeout(animate_image,1200);
+}
+
+function crust(id){
+  $("#app3 #crustType").hide();
+  var url =  $('#'+id).attr('data');
+  var data1=$('#'+id).val();
+  $.ajax({
+    url:'./'+url,
+    type:'POST',
+    data:'name='+data1,
+    success:function(response){
+
+    }
+  });
+}
+
+$(document).ready(function(){
+  $('.owl-carousel').owlCarousel();
+  $('#name1').on('click',function(){
+      if ( $('#name').val().match('^[a-zA-Z]{3,16}$') ) {
+        var data = $('#name').val();
+              $.ajax({
+                type:'POST',
+                url:'./name',
+                data:{
+                  data:data
+                },
+                success:function(response){
+
+                }
+              })
+          } else {
+              alert("That's not a name");
+          }
+      });
+      $('#email').on('click',function(){
+        var email = $('#emailID').val();
+        var atpos = email.indexOf("@");
+        var dotpos = email.lastIndexOf(".");
+        console.log(email);
+        if(atpos <1 || (dotpos-atpos<2)){
+          alert('Please enter the valid emailID');
+        }else{
+        $.ajax({
+          type:'POST',
+          url:'./email',
+          data:{
+            data:email
+          },
+          success:function(response){
+
+          }
+        })
+        }
+      });
+      $('#address').on('click',function(){
+        var data = $('#address1').val();
+        $.ajax({
+          type:'POST',
+          url:'./store',
+          data:{
+            data:data
+          },
+          success:function(response){
+
+          }
+        });
+      });
+});
+
+function crust1(id){
+  $('#app3 #cheeseT').hide();
+  var data = $('#'+id).attr('data');
+  $.ajax({
+    url:'./'+data,
+    success:function(response){
+
+    }
+  })
+}
+function toping(id){
+  $('#app2').load('./enable',function(responseTxt, statusTxt, xhr){
+    if(statusTxt == "success")
+           console.log("External content loaded successfully!");
+       if(statusTxt == "error")
+           console.log("Error: " + xhr.status + ": " + xhr.statusText);
+   });
+  var url=$('#'+id).attr('data');
+  var data1=$('#'+id).val();
+  $.ajax({
+    url:'./'+url,
+    type:'POST',
+    data:'name='+data1,
+    success:function(response){
+
+    }
+  });
+
+}
+
+function done(){
+  $('#app2').load('./disable');
+  $.ajax({
+    url:'./last',
+    success:function(response){
+
+    }
+  })
+
+}
+</script>
+
+<div id="example-1">
+
+
+<div id="image" v-if="items[0].message === 'nikhil'">
+
+    <div id="image" class="owl-carousel owl-theme">
+    <div><a id="image1" onclick="image(this.id)" ><img src="/upload/{{image1}}" style="width: 98%;height:151px;"/></a><p style="border: 1px solid #333;
+      padding: 3px;">Veg ExtraVaganza Black Olives,Onions,Crisp Capsicum,Mushroom Fresh Tomato,Golden Corn,Jalapeno and Extra Cheese</p></div>
+    <div><a id="image2" onclick="image(this.id)"><img src="/upload/{{image2}}" style="width: 98%;height:151px;"/></a><p style="border: 1px solid #333;
+      padding: 3px;">Cloud 9 Onion,Tomato BabyCorn Paneer Crisp Capsicum and Jalapeno</p></div>
+    <div><a id="image3" onclick="image(this.id)"><img src="/upload/{{image3}}" style="width: 98%;height:151px;"/></a><p style="border: 1px solid #333;
+      padding: 3px;">Chef's Veg Wonder Mushroom Jalapeno BabyCorn Crisp Capsicum Paneer and Red Paprika</p></div>
+    <div><a id="image4" onclick="image(this.id)"><img src="/upload/{{image4}}" style="width: 98%;height:151px;"/></a><p style="border: 1px solid #333;
+      padding: 3px;">Peppy Paneer Paneer Crisp Capsicum and Red Paprika</p></div>
+  </div>
+</div>
+
+<div  id="nimage" v-if="items[0].message === 'aman'">
+
+  <div id="nimage" class="owl-carousel owl-theme">
+  <div><a id="image5" onclick="image(this.id)"><img src="/upload/{{image1}}" style="width: 98%;height: 151px;"/></a><p style="border: 1px solid #333;
+    padding: 3px;">Non Veg Supreme Black Olives Onions Crisp Capsicum Mushroom hot n spicy chicken chunky chicken</p></div>
+  <div><a id="image6" onclick="image(this.id)"><img src="/upload/{{image2}}" style="width: 98%;height: 151px;"/></a><p style="border: 1px solid #333;
+    padding: 3px;">Chicken Dominator Grilled Chicken Rashers Double Barbeque Chicken Exotic Chicken Salami Hot n Spicy Chicken</p></div>
+  <div><a id="image7" onclick="image(this.id)"><img src="/upload/{{image3}}" style="width: 98%;height: 151px;"/></a><p style="border: 1px solid #333;
+    padding: 3px;">Seventh Heaven Double Chicken Rashers Barbeque Chicken Onion Yellow Bell Pepper Red Bell and Jalapeno</p></div>
+</div>
+</div>
+
+
+<div v-if="items[0].message === 'click1'">
+
+<div  class="click1">
+<input name="pizza1" type="text" value="{{pizzaName}}"/><span id="nik1" onclick="click1(this.id)">Done</span>
+</div>
+</div>
+
+
+<div v-if="items[0].message === 'click2'">
+<div class="click2">
+<input name="pizza1" type="text" value="{{pizzaName}}"/><span id="nik2" onclick="click1(this.id)">Done</span>
+</div>
+</div>
+
+
+<div v-if="items[0].message === 'click3'">
+  <div class="click3">
+<input name="pizza1" type="text" value="{{pizzaName}}"/><span id="nik3" onclick="click1(this.id)">Done</span>
+</div>
+</div>
+
+<div v-if="items[0].message === 'click4'">
+  <div class="click4">
+<input name="pizza1" type="text" value="{{pizzaName}}"/><span id="nik4" onclick="click1(this.id)">Done</span>
+</div>
+</div>
+
+<div v-if="items[0].message === 'click5'">
+  <div class="click5">
+<input name="pizza1" type="text" value="{{pizzaName}}"/><span id="nik5" onclick="click1(this.id)">Done</span>
+</div>
+</div>
+
+<div v-if="items[0].message === 'click6'">
+  <div class="click6">
+<input name="pizza1" type="text" value="{{pizzaName}}"/><span id="nik6" onclick="click1(this.id)">Done</span>
+</div>
+</div>
+
+<div v-if="items[0].message === 'click7'">
+  <div class="click7">
+<input name="pizza1" type="text" value="{{pizzaName}}"/><span id="nik7" onclick="click1(this.id)">Done</span>
+</div>
+</div>
+
+<div v-if="items[0].message === 'disable'">
+  <div id="disable1" class="disable">
+    <input type="text" placeholder="Choose from Below.." disabled />
+</div>
+</div>
+
+
+<div v-if="items[0].message === 'large'">
+  <div id="large">
+    <input id="size" onclick="regular(this.id)" type="button" value="Regular"><br/>
+    <input id="size1" onclick="regular(this.id)" type="button" value="Medium"><br/>
+    <input id="size2" onclick="regular(this.id)" type="button" value="Large"><br/>
+</div>
+</div>
+
+
+<div v-if="items[0].message === 'size'">
+  <div id="choice">
+  <input id="y" onclick="abc(this.id);" data='yes' type="button" value="Yes"/><br/>
+  <input id="n" onclick="abc(this.id);" data='no' type="button" value="No"/><br/>
+</div>
+</div>
+
+
+
+<div v-if="items[0].message === 'many'">
+  <div id="manyP">
+<select id="many" onchange="pizza()"><option value="">How many?</option><option value="1">1 Pizza</option><option value="2">2 Pizza</option><option value="3">3 Pizza</option>
+</select></div>
+</div>
+
+
+<div v-if="items[0].message === 'oneP'">
+  <div class="a">
+  <input type="text" value="1Pizza"/><span id="onePizza" onclick="piz()" >Done</span>
+</div>
+</div>
+
+<div v-if="items[0].message === 'twoP'">
+  <div class="a1">
+    <input type="text" value="2Pizza"/><span onclick="piz2()">Done</span>
+  </div>
+</div>
+
+  <div v-if="items[0].message === 'threeP'">
+    <div class="a2">
+    <input type="text" value="3Pizza"/><span onclick="piz3()">Done</span>
+  </div>
+</div>
+
+
+<div v-if="items[0].message === 'add1'">
+  <div id="add">
+<input id="yes1" onclick="yesP(this.id)" type="button" value="Yes"/><br/>
+<input id="no1" onclick="yesP(this.id)" type="button" value="No"/><br/>
+</div>
+</div>
+
+
+
+<div v-if="items[0].message === 'back'">
+  <div id="back">
+  <button onclick="hey()"> <img src="/icons/veg.png"height="35"/>Veg-Pizza</button><br/><br/>
+  <button onclick="hey1()"><img src="/icons/Non_Veg.png" height="35">Non-Veg Pizza</button>
+</div>
+</div>
+
+
+
+<div v-if="items[0].message === 'info'">
+  <div id="custName">
+<input name="customer" type="text" id="name" placeholder="Type here..." /><span id="name1">Done</span>
+</div>
+</div>
+
+
+  <div v-if="items[0].message === 'email'">
+    <div id="custEmail">
+    <input id="emailID" type="text" name="email" placeholder="Type Here..."/><span id="email">Done</span>
+</div>
+</div>
+
+
+  <div v-if="items[0].message === 'address'">
+    <div id="custAddress">
+  <input id="address1" type="text" name="address" placeholder="Type Here ..."/><span id="address">Done</span>
+</div>
+</div>
+
+
+
+<div v-if="items[0].message === 'size1'">
+  <div id="crustP">
+<input id="crust" onclick="top1(this.id)" type="button" value="Crust Type"/><br/>
+<input id="toppingsType" onclick="top1(this.id)" type="button" value="Toppings"/><br/>
+<input id="cheeseType" onclick="top1(this.id)" type="button" value="Add Extra Cheese"/><br/>
+<input id="done" onclick="top1(this.id)" type="button" value="I am done"/><br/>
+</div>
+</div>
+
+
+
+  <div v-if="items[0].message === 'crust'">
+    <div id="crustType">
+<input id="1" data="1" onclick="crust(this.id)" type="button" value="Classic Hand Tossed"/><br/>
+<input id="2" data="1" onclick="crust(this.id)" type="button" value="White Thin Crust"/><br/>
+<input id="3" data="1" onclick="crust(this.id)" type="button" value="Cheese Burst" /><br/>
+<input id="4" data="1" onclick="crust(this.id)" type="button" value="Fresh Pan Pizza"/><br/>
+</div>
+</div>
+
+
+  <div v-if="items[0].message === 'cheese'">
+    <div id="cheeseT">
+  <input type="button" onclick="crust1(this.id)" data="done" id="c1" value="I am done"/><br/>
+  <input type="button" onclick="crust1(this.id)" data="crust" id="c2" value="Crust Type"/><br/>
+  <input type="button" onclick="crust1(this.id)" data="toppingsType" id="c3" value="Toppings"/><br/>
+  <input type="button" onclick="crust1(this.id)" data="cheeseType" id="c4" value="Add Extra Cheese"/><br/>
+</div>
+</div>
+
+<div v-if="items[0].message === 'toppings'">
+<div id="toppingType">
+  <input type="button" data="t1" onclick="toping(this.id)" id="t1" value="Black olive"/><br/>
+  <input type="button" data="t1" onclick="toping(this.id)" id="t2" value="Onion"/><br/>
+  <input type="button" data="t1" onclick="toping(this.id)" id="t3" value="Crisp Capsicum"/><br/>
+  <input type="button" data="t1" onclick="toping(this.id)" id="t4" value="Paneer"/><br/>
+  <input type="button" data="t1" onclick="toping(this.id)" id="t5" value="Mushroom"/><br/>
+  <input type="button" data="t1" onclick="toping(this.id)" id="t6" value="Golden Corn"/><br/>
+</div>
+</div>
+
+
+  <div v-if="items[0].message === 'enable'">
+    <div id="ena">
+<input type="text" placeholder="Choose from Below..." disabled/><span onclick="done()">Done</span>
+</div>
+</div>
+
+</div>
+<script>
+var example1 = new Vue({
+  el: '#example-1',
+  delimiters: ['{', '}'],
+  data: {
+    items: [
+      { message: '{{key}}', id: 1 },
+    ]
+  },
+})
+</script>
