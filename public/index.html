@@ -6,6 +6,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/animate.css">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <title>App</title>
     <style>
     .alignment{
@@ -23,64 +24,23 @@
       max-height: 250px !important;
     }
     #nimage img{
-      mex-height:250px !important;
+      max-height:250px !important;
     }
-
-    #image
-    {
-      overflow: hidden;
-      height: 0px;
-    }
-    #nimage{
-      overflow: hidden;
-      height:0px;
-    }
-    #large
-    {
-      overflow: hidden;
-      height: 0px;
-    }
-    #choice{
-      overflow:hidden;
-      height:0px;
-    }
-    #crustP{
-      overflow: hidden;
-      height: 0px;
-      width: 65%;
-      margin-left: 61px;
-    }
-    #manyP{
-      overflow: hidden;
-      height:0px;
-    }
-    #crustType{
-      overflow: hidden;
-      height:0px;
-    }
-    #toppingType{
-      overflow: hidden;
-      height: 0px;
-    }
-    #cheese1{
-      overflow: hidden;
-      height:0px;
-    }
-    #app2{
+    .nik2{
       position: relative;
     }
-    #app4
+    .nik4
     {
       position: absolute;
       bottom: 15px;
       width: calc(100% - 25px);
     }
-    #app
+    .nik
     {
       max-height: 450px;
       overflow-y: scroll;
     }
-    #app3 button{
+    .nik3 button{
     width: 65%;
     background: #337ab7;
     border-radius: 25px;
@@ -88,16 +48,16 @@
     color:white;
     min-width: 202px;
     }
-    #app2 input{
+    .nik2 input{
       width: 379px;
       height: 40px;
       border-radius: 25px;
       padding: 20px;
     }
-    #app ul{
+    .nik ul{
       margin-left:-39px;
     }
-    #app span{
+    .nik span{
           background-color: #ddd;
           border-radius: 25px;
           padding:10px;
@@ -105,7 +65,7 @@
           display:inline-block;
     }
 
-    #app3 select{
+    .nik3 select{
     width: 65%;
     background: #337ab7;
     border-radius: 25px;
@@ -120,27 +80,28 @@
 
     </style>
 
+
   </head>
   <body>
     <div class="alignment">
-  <div id="app" style="font-size:20px">
+  <div id="app" class="nik" style="font-size:20px">
     <p><span>Hello! welcome to <strong>Dominos</strong></span></p>
     <p v-html="image"></p>
     <p v-bind:title="title"><span>What kind of pizza do you want?</span></p>
     <ul style="list-style:none" id="messages"></ul>
   </div>
-  <div id="app4">
-  <div id="app2">
+  <div id="app4" class="nik4">
+  <div id="app2" class="nik2">
     <p v-html="input"></p>
   </div>
-  <div id="app3">
+  <div id="app3" class="nik3">
     <button v-on:click="hey"> <img src="/icons/veg.png"height="35"/>Veg-Pizza</button><br/><br/>
     <button @click="hey1"><img src="/icons/Non_Veg.png" height="35">Non-Veg Pizza</button>
   </div>
 </div>
 </div>
 <script src="/socket.io/socket.io.js"></script>
-<script src="./server/nik.js"></script>
+<script src="/server/nik.js"></script>
 <script src="https://unpkg.com/vue@2.3.4"></script>
 <script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
 </body>
@@ -167,21 +128,6 @@
     },
     methods:{
       hey:function () {
-        // $('#app4').animate({
-        //   left:280
-        // },{
-        //   duration:2000,
-        //   start: function(){
-        //     $('#app4').addClass("animated slideOutDown");
-        //     $('#messages').append('<li class="text-right"><button style="color:white;font-family:verdana;font-size:30px;background:lightblue;border-radius:25px">Veg Pizza</button></li>');
-        //     $('#messages').append('<li>Pick one</li>');
-        //   },
-        //   complete: function(){
-        //   $('#app4').removeClass("animated slideOutDown");
-        //   $('#app3').load('./vegImages');
-        //   }
-        // })
-
         function append_li()
         {
           var li  = '<li class="text-right"><span style="color:#eee;border-radius:25px;background-color:#337ab7;padding:10px;font-size:17px">Veg Pizza</span></li><li><span style="padding:10px;font-size:17px">Pick one</span></li>';
@@ -200,11 +146,6 @@
         setTimeout(animate_image,1200);
       },
          hey1:function () {
-          //  var li=$('<li></li>');
-          //   $('#messages').append('<li class="text-right"style="color:blue;font-family:verdana;font-size:30px;">Non-Veg Pizza</li>');
-          //  $('#messages').append('<li>Pick one</li>');
-          //  $('#app3').load('./NonVegImages');
-
           function append_li()
           {
             var li  = '<li class="text-right"><span style="color:#eee;border-radius:25px;background-color:#337ab7;padding:10px;font-size:17px">Non Veg Pizza</span></li><li><span style="padding:10px;font-size:17px">Pick one</span></li>';

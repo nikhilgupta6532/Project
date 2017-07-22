@@ -22,6 +22,11 @@ var PizzaSchema = new mongoose.Schema({
     minlength:1,
     unique:true,
   },
+  customerAddress:{
+    type:String,
+    trim:true,
+    minlength:1,
+  },
   pizzaType:{
     type:String,
     trim:true
