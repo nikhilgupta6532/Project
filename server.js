@@ -26,6 +26,14 @@ app.use(fileUpload());
 app.set('view engine','hbs');
 app.io=io;
 
+io.on('connection',(socket)=>{
+
+console.log('new user connected');
+
+socket.on('disconnect',()=>{
+  console.log('user was disconnected');
+})
+
 app.get('/',(req,res)=>{
   res.sendFile(__dirname+'/public/index.html');
 });
@@ -529,7 +537,7 @@ app.post('/store',(req,res)=>{
   });
   res.send();
 });
-
+});
 server.listen(3000,()=>{
   console.log('server is up on port 3000');
 })

@@ -1,5 +1,13 @@
 var socket = io();
+//var socket = io.connect('http://localhost');
 
+socket.on('connect',()=>{
+  console.log('connected to server');
+});
+
+socket.on('disconnect',()=>{
+  console.log('disconnected from server');
+});
 
 socket.on('image1',(message)=>{
 $('#app2').load('./click1',function(responseTxt, statusTxt, xhr){
