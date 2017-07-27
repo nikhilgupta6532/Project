@@ -11,6 +11,7 @@ var app = express();
 var server = http.createServer(app);
 const {Pizza} = require('./models/pizza')
 const session = require('express-session');
+const port = process.env.PORT || 3000;
 
 var io=socketIO(server);
 
@@ -538,6 +539,6 @@ app.post('/store',(req,res)=>{
   res.send();
 });
 });
-server.listen(3000,()=>{
-  console.log('server is up on port 3000');
+server.listen(port,()=>{
+  console.log('server is up on port'+port);
 })
